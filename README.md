@@ -73,3 +73,22 @@ To use streaming, create a `loading.tsx` in your route folder.
 
 The Next.js Image component extends the HTML `<img>` element for automatic image optimization.
 [https://nextjs.org/docs/app/api-reference/components/image](Image Docs)
+
+## Server vs Client Components
+
+### React Server Components RSC
+
+The Backend executes the server component functions & hence derives the to-be-rendered HTML code.
+
+* Component that are only rendered on the server.
+* Code is executed on the Backend when working with NextJS.
+* By the default, all React components (in NextJS) are RSCs
+* ***Advantage:*** Less client-side JS great SEO (Search Engine Optimization).
+
+### Client Components
+
+The client side receives & renders the to-be-rendered HTML code.
+
+* Components that are pre-rendered on the server but then also potentially on the client.
+* Opt-vi "use client" directive
+* * ***Advantage:*** Client-side interactivity
