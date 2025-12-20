@@ -26,10 +26,10 @@ Here's a list of reserved filenames in NextJS - you'll, of course, learn about t
     loading.js => Fallback page which is shown whilst sibling or nested pages (or layouts) are fetching data
 
     route.js => Allows you to create an API route (i.e., a page which does NOT return JSX code but instead data, e.g., in the JSON format)
-    
+
 <https://nextjs.org/docs/app/api-reference/file-conventions>
 
-***React Server Components RSC*** Render only on the server never on the client. Page/HTML content is rendered on the server & send to the client.
+**_React Server Components RSC_** Render only on the server never on the client. Page/HTML content is rendered on the server & send to the client.
 
 ## Linking and Navigation
 
@@ -40,8 +40,8 @@ In Next.js, routes are rendered on the server by default. This often means the c
 In Next.js, Layouts and Pages are React Server Components by default.
 There are two types of server rendering, based on when it happens:
 
-* Static Rendering (or Prerendering) happens at build time or during revalidation and the result is cached.
-* Dynamic Rendering happens at request time in response to a client request.
+- Static Rendering (or Prerendering) happens at build time or during revalidation and the result is cached.
+- Dynamic Rendering happens at request time in response to a client request.
 
 The trade-off of server rendering is that the client must wait for the server to respond before the new route can be shown. Next.js addresses this delay by `prefetching` routes the user is likely to visit and performing `client-side transitions`.
 
@@ -52,8 +52,8 @@ Next.js automatically prefetches routes linked with the `<Link>` component when 
 
 How much of the route is prefetched depends on whether it's static or dynamic:
 
-* Static Route: the full route is prefetched.
-* Dynamic Route: prefetching is skipped, or the route is partially prefetched if `loading.tsx` is present.
+- Static Route: the full route is prefetched.
+- Dynamic Route: prefetching is skipped, or the route is partially prefetched if `loading.tsx` is present.
 
 To improve the navigation experience to dynamic routes, you can use streaming.
 
@@ -61,3 +61,15 @@ To improve the navigation experience to dynamic routes, you can use streaming.
 
 Streaming allows the server to send parts of a dynamic route to the client as soon as they're ready, rather than waiting for the entire route to be rendered. This means users see something sooner, even if parts of the page are still loading.
 To use streaming, create a `loading.tsx` in your route folder.
+
+## Components
+
+### Link Component
+
+`<Link>` is a React component that extends the HTML `<a>` element to provide prefetching and client-side navigation between routes. It is the primary way to navigate between routes in Next.js.
+[https://nextjs.org/docs/app/api-reference/components/link](Link Docs)
+
+### Image Component
+
+The Next.js Image component extends the HTML `<img>` element for automatic image optimization.
+[https://nextjs.org/docs/app/api-reference/components/image](Image Docs)
