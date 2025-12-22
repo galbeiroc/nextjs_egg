@@ -7,7 +7,7 @@ export interface MealItem {
   title: string;
   image: string;
   summary: string;
-  createdBy: string;
+  creator: string;
   slug: string;
 }
 

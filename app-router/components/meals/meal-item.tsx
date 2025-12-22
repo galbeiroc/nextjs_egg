@@ -10,7 +10,7 @@ export default function MealItem({
   title,
   image,
   summary,
-  createdBy,
+  creator,
   slug,
 }: MealItemProps) {
   return (
@@ -21,7 +21,7 @@ export default function MealItem({
         </div>
         <div className={styles.headerText}>
           <h2>{title}</h2>
-          <p>By {createdBy}</p>
+          <p>By {creator}</p>
         </div>
       </header>
       <div className={styles.content}>
