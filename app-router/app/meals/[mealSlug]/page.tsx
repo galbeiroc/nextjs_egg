@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import { getMeal } from "@/lib/meals";
 import { MealItemProps } from "@/components/meals/meal-item";
@@ -17,6 +18,10 @@ export default async function MealsDetailPage({
 }) {
   const { mealSlug } = await params;
   const meal = getMeal(mealSlug) as MealsDetailPage;
+
+  if (!meal) {
+    notFound();
+  }
 
   const { title, image, summary, creator, creator_email, instructions } = meal;
   const instructionsHtml = instructions.replaceAll("\n", "<br/>");
