@@ -13,6 +13,7 @@ export default function MealItem({
   creator,
   slug,
 }: MealItemProps) {
+  console.log(title)
   return (
     <article className={styles.meal}>
       <header>

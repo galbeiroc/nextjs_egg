@@ -11,7 +11,7 @@ export interface MealItem {
   slug: string;
 }
 
-interface MealsGridProps {
+export interface MealsGridProps {
   meals: MealItem[];
 }
 

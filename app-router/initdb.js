@@ -183,8 +183,8 @@ async function initDB() {
   const stmt = db.prepare(`
     INSERT INTO meals VALUES (
       null,
-      @slug,
       @title,
+      @slug,
       @image,
       @summary,
       @instructions,
