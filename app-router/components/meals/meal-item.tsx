@@ -4,7 +4,7 @@ import { type MealItem } from "./meals-grid";
 
 import styles from "./meal-item.module.css";
 
-type MealItemProps = Omit<MealItem, "id">;
+export type MealItemProps = Omit<MealItem, "id">;
 
 export default function MealItem({
   title,
@@ -13,7 +13,6 @@ export default function MealItem({
   creator,
   slug,
 }: MealItemProps) {
-  console.log(title)
   return (
     <article className={styles.meal}>
       <header>
