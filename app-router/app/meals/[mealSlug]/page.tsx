@@ -6,7 +6,7 @@ import { MealItemProps } from "@/components/meals/meal-item";
 
 import styles from "./page.module.css";
 
-type MealsDetailPage = MealItemProps & {
+export type MealItem = MealItemProps & {
   instructions: string;
   creator_email: string;
 };
@@ -17,7 +17,7 @@ export default async function MealsDetailPage({
   params: { mealSlug: string };
 }) {
   const { mealSlug } = await params;
-  const meal = getMeal(mealSlug) as MealsDetailPage;
+  const meal = getMeal(mealSlug) as MealItem;
 
   if (!meal) {
     notFound();
