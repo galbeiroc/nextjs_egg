@@ -92,3 +92,28 @@ The client side receives & renders the to-be-rendered HTML code.
 * Components that are pre-rendered on the server but then also potentially on the client.
 * Opt-vi "use client" directive
 * * ***Advantage:*** Client-side interactivity
+
+## Server Actions
+
+React Server Actions are Server Functions that execute on the server. They can be called in Server and Client Components to handle form submissions. This guide will walk you through how to create forms in Next.js with Server Actions.
+
+Server Functions allow Client Components to call async functions executed on the server.
+
+```ts
+export default function Page() {
+  async function createInvoice(formData: FormData) {
+    'use server'
+
+    const rawFormData = {
+      customerId: formData.get('customerId'),
+      amount: formData.get('amount'),
+      status: formData.get('status'),
+    }
+
+    // mutate data
+    // revalidate the cache
+  }
+
+  return <form action={createInvoice}>...</form>
+}
+```
