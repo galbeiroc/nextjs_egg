@@ -1,6 +1,8 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
+
 import { Meal, saveMeal } from "./meals";
 
 function isValidText(text: string | null) {
@@ -36,5 +38,6 @@ export async function shareMeal(prevState: FormState, formData: FormData) {
   }
 
   await saveMeal(meal as Meal);
+  revalidatePath("/meals");
   redirect("/meals");
 }
