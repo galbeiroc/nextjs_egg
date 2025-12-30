@@ -11,11 +11,27 @@ export type MealItem = MealItemProps & {
   creator_email: string;
 };
 
-export default async function MealsDetailPage({
-  params,
-}: {
-  params: { mealSlug: string };
-}) {
+interface IParams {
+  params: {
+    mealSlug: string;
+  };
+}
+
+export async function generateMetadata({ params }: IParams) {
+  const { mealSlug } = await params;
+  const meal = getMeal(mealSlug) as MealItem;
+
+  if (!meal) {
+    notFound();
+  }
+  
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
+export default async function MealsDetailPage({ params }: IParams) {
   const { mealSlug } = await params;
   const meal = getMeal(mealSlug) as MealItem;
 
